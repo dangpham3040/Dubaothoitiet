@@ -8,14 +8,14 @@ Let's take a look at some code.  We made a sample app with some practical applic
 
 If you want to follow along, create a new app with a blank activity and add a button and a textview to the the activity's layout.
 
-Retrofit is added to the project through the following lines in the the [Gradle file](https://github.com/SiGMobileUIUC/RetrofitTutorial/blob/master/app/build.gradle):
+Retrofit is added to the project through the following lines in the the [Gradle file](https://github.com/dangpham3040/Dubaothoitiet/blob/main/app/build.gradle):
 
 ```
-compile 'com.squareup.retrofit2:retrofit:2.1.0'
-compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+ implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+ implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 ```
 
-Before we start anything else, we need to add the following line to our [Manifest](https://github.com/SiGMobileUIUC/RetrofitTutorial/blob/master/app/src/main/AndroidManifest.xml) to grant our app permission to access the internet.
+Before we start anything else, we need to add the following line to our [Manifest](https://github.com/dangpham3040/Dubaothoitiet/blob/main/app/src/main/AndroidManifest.xml) to grant our app permission to access the internet.
 
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
@@ -140,7 +140,7 @@ public class UserModel {
 
 Since we only need to store the username, it's an extremely simple file. If you want to store more fields, such as 'avatar\_url', you would have to create corresponding 'avatar\_url' fields in your model class.
 ### Using GitHub's API
-Now that we have our model class set up, we are now ready to prepare to connect to GitHub's API.  To accomplish this, we need to create an interface that Retrofit uses to make calls to GitHub's API. Let's name this [GitHubApi.java](https://github.com/SiGMobileUIUC/RetrofitTutorial/blob/master/app/src/main/java/gg/krish/retrofittutorial/GitHubApi.java). It will look similar to this:
+Now that we have our model class set up, we are now ready to prepare to connect to GitHub's API.  To accomplish this, we need to create an interface that Retrofit uses to make calls to GitHub's API. Let's name this [GitHubApi.java](https://github.com/dangpham3040/Dubaothoitiet/blob/main/app/src/main/java/com/example/dubaothoitiet/GitHubApi.java). It will look similar to this:
 
 ```java
 package com.example.dubaothoitiet;
