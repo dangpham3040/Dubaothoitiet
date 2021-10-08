@@ -35,40 +35,42 @@ We get a list of users back in the form of [JSON](http://www.json.org/) objects:
 ```	
 [
   {
-    "login": "Perilynn",
-    "id": 6961306,
-    "avatar_url": "https://avatars0.githubusercontent.com/u/6961306?v=3",
+    "login": "mojombo",
+    "id": 1,
+    "node_id": "MDQ6VXNlcjE=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4",
     "gravatar_id": "",
-    "url": "https://api.github.com/users/Perilynn",
-    "html_url": "https://github.com/Perilynn",
-    "followers_url": "https://api.github.com/users/Perilynn/followers",
-    "following_url": "https://api.github.com/users/Perilynn/following{/other_user}",
-    "gists_url": "https://api.github.com/users/Perilynn/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/Perilynn/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/Perilynn/subscriptions",
-    "organizations_url": "https://api.github.com/users/Perilynn/orgs",
-    "repos_url": "https://api.github.com/users/Perilynn/repos",
-    "events_url": "https://api.github.com/users/Perilynn/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/Perilynn/received_events",
+    "url": "https://api.github.com/users/mojombo",
+    "html_url": "https://github.com/mojombo",
+    "followers_url": "https://api.github.com/users/mojombo/followers",
+    "following_url": "https://api.github.com/users/mojombo/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mojombo/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mojombo/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mojombo/subscriptions",
+    "organizations_url": "https://api.github.com/users/mojombo/orgs",
+    "repos_url": "https://api.github.com/users/mojombo/repos",
+    "events_url": "https://api.github.com/users/mojombo/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mojombo/received_events",
     "type": "User",
     "site_admin": false
   },
   {
-    "login": "dt5531",
-    "id": 8681226,
-    "avatar_url": "https://avatars2.githubusercontent.com/u/8681226?v=3",
+    "login": "defunkt",
+    "id": 2,
+    "node_id": "MDQ6VXNlcjI=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4",
     "gravatar_id": "",
-    "url": "https://api.github.com/users/dt5531",
-    "html_url": "https://github.com/dt5531",
-    "followers_url": "https://api.github.com/users/dt5531/followers",
-    "following_url": "https://api.github.com/users/dt5531/following{/other_user}",
-    "gists_url": "https://api.github.com/users/dt5531/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/dt5531/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/dt5531/subscriptions",
-    "organizations_url": "https://api.github.com/users/dt5531/orgs",
-    "repos_url": "https://api.github.com/users/dt5531/repos",
-    "events_url": "https://api.github.com/users/dt5531/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/dt5531/received_events",
+    "url": "https://api.github.com/users/defunkt",
+    "html_url": "https://github.com/defunkt",
+    "followers_url": "https://api.github.com/users/defunkt/followers",
+    "following_url": "https://api.github.com/users/defunkt/following{/other_user}",
+    "gists_url": "https://api.github.com/users/defunkt/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/defunkt/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/defunkt/subscriptions",
+    "organizations_url": "https://api.github.com/users/defunkt/orgs",
+    "repos_url": "https://api.github.com/users/defunkt/repos",
+    "events_url": "https://api.github.com/users/defunkt/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/defunkt/received_events",
     "type": "User",
     "site_admin": false
   }
@@ -78,16 +80,43 @@ We get a list of users back in the form of [JSON](http://www.json.org/) objects:
 
 For this app, we only need to store the username of each user, or the 'login' element of each JSON object in the list.
 
-Therefore, we can create an extremely short model class called [UserModel.java](https://github.com/SiGMobileUIUC/RetrofitTutorial/blob/master/app/src/main/java/gg/krish/retrofittutorial/UserModel.java) (or anything you want) that looks like this:
+Therefore, we can create an extremely short model class called [UserModel.java](https://github.com/dangpham3040/Dubaothoitiet/blob/main/app/src/main/java/com/example/dubaothoitiet/UserModel.java) (or anything you want) that looks like this:
 
 ```java
-package gg.krish.retrofittutorial;
+package com.example.dubaothoitiet;
 
 /**
  * Retrofit model class to store information about GitHub users.
  */
 public class UserModel {
     String login;
+    String id;
+    String avatar_url;
+    String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAvatar_url() {
+        return avatar_url;
+    }
+
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
+    }
 
     public String getLogin() {
         return login;
@@ -96,8 +125,17 @@ public class UserModel {
     public void setLogin(String login) {
         this.login = login;
     }
-}
 
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "login='" + login + '\'' +
+                ", id='" + id + '\'' +
+                ", avatar_url='" + avatar_url + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
+}
 ```
 
 Since we only need to store the username, it's an extremely simple file. If you want to store more fields, such as 'avatar\_url', you would have to create corresponding 'avatar\_url' fields in your model class.
@@ -105,6 +143,8 @@ Since we only need to store the username, it's an extremely simple file. If you 
 Now that we have our model class set up, we are now ready to prepare to connect to GitHub's API.  To accomplish this, we need to create an interface that Retrofit uses to make calls to GitHub's API. Let's name this [GitHubApi.java](https://github.com/SiGMobileUIUC/RetrofitTutorial/blob/master/app/src/main/java/gg/krish/retrofittutorial/GitHubApi.java). It will look similar to this:
 
 ```java
+package com.example.dubaothoitiet;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -121,6 +161,10 @@ public interface GitHubApi {
     @GET("users/{user}/followers")
     Call<List<UserModel>> loadFollowers(
             @Path("user") String user
+    );
+    @GET("users")
+    Call<List<UserModel>> loadUser(
+
     );
 
     Retrofit retrofit = new Retrofit.Builder()
@@ -140,7 +184,7 @@ Now, we are ready to actually use this API call in our app.
 
 ### Making the API call
 
-In our app, we will be making the API call in [```MainActivity```](https://github.com/SiGMobileUIUC/RetrofitTutorial/blob/master/app/src/main/java/gg/krish/retrofittutorial/MainActivity.java).
+In our app, we will be making the API call in [```MainActivity```](https://github.com/dangpham3040/Dubaothoitiet/blob/main/app/src/main/java/com/example/dubaothoitiet/MainActivity.java).
 
 The first thing to do is to actually take advantage of the interface we have created. If you know what an interface is (don't worry if you don't, just make a quick Google search during or even after this tutorial), you know that normally we have to implement our interface in a class to actually do anything. However, the beauty of Retrofit is that it does this for us at runtime. All we have to do is the following:
 
@@ -153,30 +197,54 @@ You can put the above line in your ```onCreate``` method as we did, or you can p
 After this is done, we can make our API call as shown below
 
 ```java
-//Sets up up the API call
-Call<List<UserModel>> call = gitHubApi.loadFollowers("krishmasand");
+    //Sets up up the API call
+        Call<List<UserModel>> call = gitHubApi.loadUser();
+        //Runs the call on a different thread
+        call.enqueue(new Callback<List<UserModel>>() {
+            @Override
+            //Once the call has finished
+            public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
+                //Gets the list of followers
+                List<UserModel> followers = response.body();
 
-//Runs the call on a different thread
-call.enqueue(new Callback<List<UserModel>>() {
-    @Override
-    //Once the call has finished
-    public void onResponse(Call<List<UserModel>> call, Response<List<UserModel>> response) {
-        //Gets the list of followers
-        List<UserModel> followers = response.body();
+                //Loads a random follower and assigns it to the TextView
+                int index = (int) (Math.random() * followers.size());
+                String text = "Random follower - " + followers.get(index).toString();
+                id.setText("ID: "+followers.get(index).getId());
+                name.setText("NAME: "+followers.get(index).getLogin());
+                link = followers.get(index).getUrl();
+                url.setText(link);
+                Picasso.get()
+                        .load(followers.get(index).getAvatar_url())
+                        .fit()
+//                                .transform(transformation)
+                        .into(hinh);
 
-        //Loads a random follower and assigns it to the TextView
-        int index = (int) (Math.random() * followers.size());
-        String text = "Random follower - " + followers.get(index).getLogin();
-        textView.setText(text);
+                Log.e("test", text);
+            }
+
+            @Override
+            //If the call failed
+            public void onFailure(Call<List<UserModel>> call, Throwable t) {
+                Log.e("test", "fail");
+            }
+        });
+        url.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(browserIntent);
+            }
+        });
+
     }
 
-    @Override
-    //If the call failed
-    public void onFailure(Call<List<UserModel>> call, Throwable t) {
-        textView.setText("Request Failed");
-        Log.e("RequestCall", "Request failed");
+    private void setcontrol() {
+        id=findViewById(R.id.id);
+        name=findViewById(R.id.ten);
+        url=findViewById(R.id.link);
+        hinh=findViewById(R.id.anh);
     }
-});
 ```
 
 The first line sets up the API call, but doesn't actually run it. The next line runs it, but not on the main thread. On Android, it is not advised to make network calls on the main thread, as that can result in the UI waiting for a network call and not being able to update (lag). Because of this, we use ```call.enqueue()```, which makes our network call on a different thread.
