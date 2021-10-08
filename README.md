@@ -27,7 +27,7 @@ In order for Retrofit to extract data from a request. We need to make a model cl
 Let's look at the reponse we get from running a GET request on a user's followers, specifically:
 
 ```
-https://api.github.com/users/krishmasand/followers
+https://api.github.com/users
 ```
 
 We get a list of users back in the form of [JSON](http://www.json.org/) objects: 
