@@ -13,6 +13,8 @@ Retrofit is added to the project through the following lines in the the [Gradle 
 ```
  implementation 'com.squareup.retrofit2:retrofit:2.1.0'
  implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+ 
+ implementation 'com.squareup.picasso:picasso:2.71828'
 ```
 
 Before we start anything else, we need to add the following line to our [Manifest](https://github.com/dangpham3040/Dubaothoitiet/blob/main/app/src/main/AndroidManifest.xml) to grant our app permission to access the internet.
